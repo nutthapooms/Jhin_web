@@ -1,0 +1,144 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Perfect Snipe</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<style type="text/css">
+		#content{
+			padding-top: 25%;
+			text-align: center;
+			text-shadow: 0px 4px 3px rgba(50,0,255,0.1),
+						 0px 8px 13px rgba(50,0,255,0.2),
+						 0px 18px 23px rgba(0,0,0,0.4);
+		}
+		body{
+			/*background-image: url(jhinb.jpg); */
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			color: white;
+		}
+		*{
+			font-family: 'IBM Plex Mono', monospace;
+		}
+		h1{
+			font-weight: 700;
+			font-size: 5em;
+		}
+		hr{
+			width: 400px;
+			
+			border-top: 1px solid #f8f8f8;
+			border-bottom: 1px solid rgba(0,0,0,0.2);
+		}
+		#navbtn{
+			background-color: transparent;
+    	    border-color: transparent;
+		}
+		.addchampbtn {
+				margin-top : 20px;
+		}
+		
+		
+	</style>
+</head>
+<body >
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container">
+        <form action ="/jhin" method = "POST"><button  class="navbar-brand" id = "navbtn"> SNIPE</button></form>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item ">
+		        <a class="nav-link	" id="Home">Home</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">About</a>
+		      </li>   
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Contact</a>
+		      </li>
+		    </ul>
+		    <ul class="navbar-nav ml-auto" >
+					<!-- <form action ="/signin" method = "POST"><button class="btn btn-danger btn-lg" id="virtuoso" ><i class="fas fa-crosshairs"></i> Virtuoso</button></form> -->
+		    	<form action ="/signin" method = "POST"><button class="nav-link" id = "navbtn"><i class="fas fa-user-plus"></i> Sign Up</a></button></form>
+		    	<li class="nav-item"><a class="nav-link" href="http://www.facebook.com"><i class="fas fa-user-alt"></i> Login</a></li>
+		    </ul>
+		  </div>
+	  </div>
+	</nav>
+
+    <div class = "container"> 
+        <h1>Champion</h1>
+
+				<table class = "table col-6 table-striped table-dark" >
+					<thead>
+						<th>Name</th>
+						<th>Role</th>
+						<th>Lane</th>
+						<th>Price</th>
+					</thead>
+					<tbody>
+							<% for(voutput of output) { %>
+								<tr>
+										<td>
+												<%=voutput.name %>
+										</td>
+										<td>
+												<%=voutput.role %>
+										</td>
+										<td>
+												<%=voutput.lane %>
+										</td>
+										<td>
+												<%=voutput.price %>
+										</td>
+
+									</tr>
+								<% } %>
+					</tbody>
+				</table>
+
+				<form action="/addchampion" method="POST" class="form-group">
+					
+					<div class = "col-3"">
+						<div><h4>Name</h4></div>
+						<div><input class="form-control" name="Name" type="text" placeholder="Name"></div>
+						<div><h4>Role</h4></div>
+						<div><input class="form-control"name="Role" type="text" placeholder="Role"></div>
+						<div><h4>Lane</h4></div>
+						<div class =  "dropdown"> 
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Dropdown button
+								<select name="Lane">
+										<option value="Top">Top</option>
+										<option value="Jungle">Jungle</option>
+										<option value="Middle">Middle</option>
+										<option value="Bottom">Bottom</option>
+										<option value="Support">Support</option>
+									</select>
+						</div>
+						<div><h4>Price</h4></div>
+						<div><input class="form-control" name="Price" type="number" placeholder="price"></div>
+						<button class = "btn btn-danger addchampbtn">The new Champion</button>
+					</div>
+        </form>
+    </div>
+	
+	
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
+
+
